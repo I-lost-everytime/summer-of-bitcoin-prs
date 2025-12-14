@@ -19,6 +19,16 @@ PRs, and learning progress during the application phase.
 - **Tech:** TypeScript, Node.js, cross-env
 - **Tested On:** Windows 10
 
+## 🟢 Nostr Components
+
+### PR #2 – npm install workaround for Storybook conflicts
+
+- **PR Link:** https://github.com/saiy2k/nostr-components/pull/49
+- **Status:** Open
+- **Problem:** npm ERESOLVE errors due to Storybook peer dependencies
+- **Solution:** Documented `npm install --legacy-peer-deps` workaround
+- **Tech:** TypeScript, Vite, Storybook
+
 ---
 
 ## 🟡 Upcoming Contributions
