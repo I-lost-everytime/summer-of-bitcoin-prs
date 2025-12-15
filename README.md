@@ -16,7 +16,7 @@ This repository tracks my open-source contributions, pull requests, and learning
 - **Problem:** Development scripts used Unix-style environment variables, breaking setup on Windows  
 - **Solution:** Replaced inline env vars with `cross-env` for cross-platform compatibility  
 - **Tech:** TypeScript, Node.js, npm, cross-env  
-- **Tested On:** Windows 10  
+- **Tested On:** Windows 10 
 
 ---
 
@@ -45,6 +45,19 @@ This repository tracks my open-source contributions, pull requests, and learning
 - **Tech:** TypeScript, Web Components  
 
 ---
+### PR #4 – Windows npm install workaround for ZEUS
+
+- **PR Link:** https://github.com/ZeusLN/zeus/pull/3437
+
+- **Status:** Open
+
+- **Problem:** npm install fails on Windows due to peer dependency conflicts
+
+- **Solution:**   Documented npm install --legacy-peer-deps workaround in README
+
+- **Tech:**  TypeScript, React Native, npm
+
+- **Tested on:**  Windows 10
 
 ## 🟡 Upcoming Contributions
 
