@@ -59,6 +59,28 @@ This repository tracks my open-source contributions, pull requests, and learning
 
 - **Tested on:**  Windows 10
 
+### PR #5 – Add optional cross-env start script for Windows compatibility
+
+- **PR Link:** https://github.com/ZeusLN/zeus/pull/3441
+
+- **Status:** Open
+
+- **Problem:**
+ Environment variables like NODE_ENV are not consistently supported across Windows shells (PowerShell / CMD)
+ This causes confusion when running development scripts on Windows
+
+- **Solution:** 
+
+Added an opt-in start:prod script using cross-env
+
+Ensures consistent environment variable handling across platforms
+
+No existing scripts or workflows were modified
+
+- **Tech:**  Node.js, npm/yarn scripts, cross-env
+
+- **Scope:** Minimal, non-breaking developer experience improvement
+
 ## 🟡 Upcoming Contributions
 
 - Nostr Components – further UI & accessibility improvements  
