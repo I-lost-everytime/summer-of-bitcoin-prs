@@ -81,6 +81,30 @@ No existing scripts or workflows were modified
 
 - **Scope:** Minimal, non-breaking developer experience improvement
 
+### PR #6 – Frontend validation for Nostr Wallet Connect inputs
+
+- **PR Link:**https://github.com/ZeusLN/zeus/pull/3448
+
+- **Status:** Open
+
+- **Related Issue:** https://github.com/ZeusLN/zeus/issues/3442
+
+- **Problem:**
+Invalid inputs during Nostr Wallet Connect setup (e.g. empty connection name or missing permissions) were only caught late in the flow, often resulting in generic or hard-to-debug error messages.
+
+- **Solution:**
+Added early, frontend-level validation for NWC connection inputs to surface clear, localized error messages before attempting connection creation.
+
+Reused existing validation locale strings
+
+Added validation at a shared submission point
+
+Improved UX without touching connection or Lightning logic
+
+- **Tech:**  TypeScript, React Native
+
+- **Scope:** Minimal, frontend-only validation improvement  
+
 ## 🟡 Upcoming Contributions
 
 - Nostr Components – further UI & accessibility improvements  
