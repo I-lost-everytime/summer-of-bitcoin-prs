@@ -89,6 +89,19 @@ No existing scripts or workflows were modified
 
 - **Related Issue:** https://github.com/ZeusLN/zeus/issues/3442
 
+### PR #7 – Improve accessibility and disabled semantics in Alby Hub ResponsiveButton
+
+- **PR Link:** https://github.com/getAlby/hub/pull/1992
+- **Status:** Open
+- **Problem:** Icon-only buttons lacked accessible labels and disabled state semantics, especially on smaller screens and when composed with `asChild`
+- **Solution:**  
+  - Added accessible labeling for icon-only buttons  
+  - Ensured `aria-disabled` is set when disabled  
+  - Marked decorative icons as `aria-hidden`
+- **Tech:** TypeScript, React, Accessibility (ARIA)
+- **Scope:** Minimal, non-breaking UI correctness improvement
+
+
 - **Problem:**
 Invalid inputs during Nostr Wallet Connect setup (e.g. empty connection name or missing permissions) were only caught late in the flow, often resulting in generic or hard-to-debug error messages.
 
