@@ -101,6 +101,30 @@ No existing scripts or workflows were modified
 - **Tech:** TypeScript, React, Accessibility (ARIA)
 - **Scope:** Minimal, non-breaking UI correctness improvement
 
+### PR #8 – Add disabled state support to `nostr-follow-button`
+
+- **PR Link:** https://github.com/saiy2k/nostr-components/pull/52  
+- **Status:** Open  
+
+- **Problem:**  
+  The `nostr-follow-button` component did not support a disabled state, allowing interaction during loading or when follow actions were unavailable. This caused accidental interactions and reduced accessibility for keyboard and screen-reader users.
+
+- **Solution:**  
+  - Added support for a `disabled` attribute  
+  - Blocked interaction and keyboard focus when disabled  
+  - Applied appropriate ARIA attributes (`role="button"`, `aria-disabled`, `aria-pressed`)  
+  - Improved keyboard navigation and screen-reader feedback  
+
+- **Concepts:**  
+  Accessibility (ARIA), keyboard interaction, UI state safety  
+
+- **Tech:**  
+  TypeScript, Web Components, Nostr UI components  
+
+- **Scope:**  
+  Minimal, non-breaking UI & accessibility improvement  
+
+
 
 - **Problem:**
 Invalid inputs during Nostr Wallet Connect setup (e.g. empty connection name or missing permissions) were only caught late in the flow, often resulting in generic or hard-to-debug error messages.
