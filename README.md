@@ -101,7 +101,7 @@ No existing scripts or workflows were modified
 - **Tech:** TypeScript, React, Accessibility (ARIA)
 - **Scope:** Minimal, non-breaking UI correctness improvement
 
-### PR #9 – Add disabled state support to `nostr-follow-button`
+### PR #8 – Add disabled state support to `nostr-follow-button`
 
 - **PR Link:** https://github.com/saiy2k/nostr-components/pull/52  
 - **Status:** Open  
@@ -142,7 +142,7 @@ Improved UX without touching connection or Lightning logic
 
 - **Scope:** Minimal, frontend-only validation improvement  
 
-### PR #8 – Investment Amount Validation Feedback (Angor)
+### PR #9 – Investment Amount Validation Feedback (Angor)
 
  **PR Link:**: https://github.com/block-core/angor/pull/606
 
