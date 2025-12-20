@@ -142,6 +142,27 @@ Improved UX without touching connection or Lightning logic
 
 - **Scope:** Minimal, frontend-only validation improvement  
 
+### PR #8 – Investment Amount Validation Feedback (Angor)
+
+ **PR Link:**: https://github.com/block-core/angor/pull/606
+
+ **Status:** Open
+
+**Problem:**
+Invalid investment amounts (e.g. zero or empty input) were not clearly communicated to users during the investment flow, leading to confusion and poor UX.
+
+**Solution:** 
+Added UI-level validation feedback that displays a clear error message when the entered investment amount is invalid, using existing validation state (IsValid).
+
+**Tech:**
+C#, Avalonia UI, XAML
+
+ **Scope:**
+UI-only improvement
+No changes to transaction logic, wallet logic, or protocol behavior
+
+**Why it matters:**
+Improves user confidence and reduces friction for first-time investors by providing immediate, actionable feedback.
 ## 🟡 Upcoming Contributions
 
 - Nostr Components – further UI & accessibility improvements  
