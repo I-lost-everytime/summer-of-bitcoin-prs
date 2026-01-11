@@ -163,11 +163,44 @@ No changes to transaction logic, wallet logic, or protocol behavior
 
 **Why it matters:**
 Improves user confidence and reduces friction for first-time investors by providing immediate, actionable feedback.
+
+### PR #10– Accessibility semantics exploration for ResponsiveButton (Alby Hub)
+
+**PR Link:**: https://github.com/getAlby/hub/pull/1992
+
+ **Status:** Closed (by author after maintainer review)
+
+**Problem:**
+Icon-only buttons in ResponsiveButton lacked clear accessibility semantics (labeling and disabled state handling), especially when composed using asChild.
+
+**Solution Attempted:**
+
+Added accessible labeling for icon-only buttons
+
+Ensured aria-disabled is set when disabled
+
+Marked decorative icons as aria-hidden
+
+**Maintainer Feedback:**
+Accessibility semantics should live in the underlying shadcn/ui Button, not in the ResponsiveButton wrapper, which is intentionally thin.
+
+**Outcome:**
+PR was closed by the author after discussion, with agreement to move accessibility improvements to the correct abstraction layer.
+
+**Concepts:**
+Accessibility (ARIA), component architecture, abstraction boundaries
+
+**Tech:**
+TypeScript, React, shadcn/ui
+
+**Scope:**
+Exploratory PR / learning-focused (no merge)
 ## 🟡 Upcoming Contributions
 
 - Nostr Components – further UI & accessibility improvements  
 - Zeus Wallet – UX / developer-experience improvements  
-- Rust-based org (VLS) – test coverage & beginner-friendly Rust fixes  
+- Rust-based org (VLS) – test coverage & beginner-friendly Rust fixes
+   
 
 ---
 
