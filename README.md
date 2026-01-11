@@ -195,6 +195,17 @@ TypeScript, React, shadcn/ui
 
 **Scope:**
 Exploratory PR / learning-focused (no merge)
+
+### PR #11 – Memory leak fix: Store subscription cleanup in `bc-button`
+
+- **PR Link:** [https://github.com/getAlby/bitcoin-connect/pull/360](https://github.com/getAlby/bitcoin-connect/pull/360)
+- **Status:** Open (All checks passed ✅)
+- **Problem:** `bc-button` was subscribing to the global store without ever unsubscribing. This leads to memory leaks and unnecessary background processing when the component is removed and re-added to the DOM.
+- **Solution:** - Captured the `unsubscribe` function returned by `store.subscribe`.
+  - Implemented the `disconnectedCallback` lifecycle method to properly clean up the listener.
+  - Refactored state synchronization to be more robust.
+- **Tech:** TypeScript, Lit, State Management (Redux-style store)
+- **Scope:** Performance & Stability
 ## 🟡 Upcoming Contributions
 
 - Nostr Components – further UI & accessibility improvements  
