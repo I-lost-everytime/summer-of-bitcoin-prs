@@ -206,6 +206,28 @@ Exploratory PR / learning-focused (no merge)
   - Refactored state synchronization to be more robust.
 - **Tech:** TypeScript, Lit, State Management (Redux-style store)
 - **Scope:** Performance & Stability
+### PR #12  – Accessibility & Interaction Refactor: bc-pay-button
+- **PR Link:** https://github.com/getAlby/bitcoin-connect/pull/361
+
+- **Status:** Open (All checks passed ✅)
+
+- **Problem:** The payment button used a non-semantic div wrapper for click events, making it inaccessible to keyboard users and screen readers during critical financial transactions.
+
+- **Solution:** - Refactored component to use the core <bci-button> for all interactions.
+
+Implemented dynamic aria-label to provide audio feedback for "Loading" and "Paid" states.
+
+Added aria-live="polite" to announce status changes automatically.
+
+Enabled native disabled attribute handling to prevent double-payments and improve UX.
+
+- **Tech:**TypeScript, Lit, Web Components, ARIA
+
+- **Scope:** Accessibility & Financial Safety
+
+
+
+
 ## 🟡 Upcoming Contributions
 
 - Nostr Components – further UI & accessibility improvements  
