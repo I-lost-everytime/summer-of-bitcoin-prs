@@ -13,8 +13,8 @@ This repository tracks my open-source contributions, pull requests, and learning
 
 - **PR Link:** https://github.com/joinmarket-webui/jam/pull/997  
 - **Status:** Open  
-- **Problem:** Development scripts used Unix-style environment variables, breaking setup on Windows  
-- **Solution:** Replaced inline env vars with `cross-env` for cross-platform compatibility david
+- **Problem:** Development scripts used Unix-style environment variables, breaking setup on Windows  david
+- **Solution:** Replaced inline env vars with `cross-env` for cross-platform compatibility 
 - **Tech:** TypeScript, Node.js, npm, cross-env  
 - **Tested On:** Windows 10 
 
