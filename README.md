@@ -9,17 +9,16 @@ This repository tracks my open-source pull requests and learning progress.
 
 ## PROJECT: JoinMarket Web UI (JAM)
 
-### PR #1 | Windows Compatibility for Dev Scripts
+### PR #1 | Memory leak fix in bc-button
 
-- **PR_LINK:** https://github.com/joinmarket-webui/jam/pull/997
+- **PR_LINK:** https://github.com/getAlby/bitcoin-connect/pull/360
 - **STATUS:** Open
-- **PROBLEM:**Local development for JoinMarket Web UI silently assumed a Unix shell environment.
-On Windows, environment variables failed to resolve, blocking contributors at the very first setup step.
-This disproportionately excluded Windows developers from contributing to a Bitcoin privacy project.
-- **SOLUTION:** Replaced inline Unix-style environment variables with cross-env, ensuring scripts behave consistently across Windows, macOS, and Linux — without changing existing workflows.
-- **TECH:** TypeScript, Node.js, npm, cross-env
-- **SCOPE:** Compatibility
-- **TESTED_ON:** Windows 10
+- **PROBLEM:** Store subscriptions created within the bc-button component were never cleaned up on unmount, causing memory leaks during repeated mounts and state updates.
+    Over time, this could degrade performance in long-running applications using Bitcoin Connect.
+- **SOLUTION:** Implemented proper unsubscribe logic using component lifecycle callbacks, ensuring subscriptions are consistently cleaned up when the component is disposed.
+- **TECH:** TypeScript, Lit
+- **SCOPE:** Performance
+
 
 ---
 
@@ -135,15 +134,17 @@ This disproportionately excluded Windows developers from contributing to a Bitco
 
 ---
 
-### PR #11 | Memory leak fix in bc-button
+### PR #11 | Windows Compatibility for Dev Scripts
 
-- **PR_LINK:** https://github.com/getAlby/bitcoin-connect/pull/360
+- **PR_LINK:** https://github.com/joinmarket-webui/jam/pull/997
 - **STATUS:** Open
-- **PROBLEM:** Store subscriptions created within the bc-button component were never cleaned up on unmount, causing memory leaks during repeated mounts and state updates.
-    Over time, this could degrade performance in long-running applications using Bitcoin Connect.
-- **SOLUTION:** Implemented proper unsubscribe logic using component lifecycle callbacks, ensuring subscriptions are consistently cleaned up when the component is disposed.
-- **TECH:** TypeScript, Lit
-- **SCOPE:** Performance
+- **PROBLEM:**Local development for JoinMarket Web UI silently assumed a Unix shell environment.
+On Windows, environment variables failed to resolve, blocking contributors at the very first setup step.
+This disproportionately excluded Windows developers from contributing to a Bitcoin privacy project.
+- **SOLUTION:** Replaced inline Unix-style environment variables with cross-env, ensuring scripts behave consistently across Windows, macOS, and Linux — without changing existing workflows.
+- **TECH:** TypeScript, Node.js, npm, cross-env
+- **SCOPE:** Compatibility
+- **TESTED_ON:** Windows 10
 
 ---
 
