@@ -13,8 +13,10 @@ This repository tracks my open-source pull requests and learning progress.
 
 - **PR_LINK:** https://github.com/joinmarket-webui/jam/pull/997
 - **STATUS:** Open
-- **PROBLEM:** Development scripts relied on Unix-style environment variables, which broke setup on Windows.
-- **SOLUTION:** Replaced inline environment variables with `cross-env` to ensure cross-platform compatibility.
+- **PROBLEM:**Local development for JoinMarket Web UI silently assumed a Unix shell environment.
+On Windows, environment variables failed to resolve, blocking contributors at the very first setup step.
+This disproportionately excluded Windows developers from contributing to a Bitcoin privacy project.
+- **SOLUTION:** Replaced inline Unix-style environment variables with cross-env, ensuring scripts behave consistently across Windows, macOS, and Linux — without changing existing workflows.
 - **TECH:** TypeScript, Node.js, npm, cross-env
 - **SCOPE:** Compatibility
 - **TESTED_ON:** Windows 10
@@ -27,8 +29,9 @@ This repository tracks my open-source pull requests and learning progress.
 
 - **PR_LINK:** https://github.com/saiy2k/nostr-components/pull/49
 - **STATUS:** Open
-- **PROBLEM:** npm install failed due to Storybook peer dependency conflicts.
-- **SOLUTION:** Documented `npm install --legacy-peer-deps` workaround in README.
+- **PROBLEM:** Fresh clones of the repository failed during npm install due to unresolved Storybook peer dependency conflicts.
+  The error originated from transitive dependencies, not application code, making the project appear broken to new contributors.
+- **SOLUTION:**Documented a safe and reproducible workaround (npm install --legacy-peer-deps) in the README to unblock local development while upstream dependencies stabilize.
 - **TECH:** TypeScript, Vite, Storybook
 - **SCOPE:** Validation
 
@@ -38,8 +41,9 @@ This repository tracks my open-source pull requests and learning progress.
 
 - **PR_LINK:** https://github.com/saiy2k/nostr-components/pull/50
 - **STATUS:** Open
-- **PROBLEM:** Profile badge was mouse-only and inaccessible to keyboard users.
-- **SOLUTION:** Added keyboard activation, focus handling, and prevented nested interactive conflicts.
+- **PROBLEM:** The nostr-profile-badge component relied entirely on mouse interaction, making it inaccessible to keyboard-only users and assistive technologies.
+  This excluded users who navigate via keyboard and violated basic accessibility expectations for interactive identity components.
+- **SOLUTION:** Implemented keyboard activation using standard key events, added proper focus handling, and resolved nested interactive element conflicts to ensure predictable behavior across input methods.
 - **TECH:** TypeScript, Web Components
 - **SCOPE:** Accessibility
 
@@ -51,8 +55,9 @@ This repository tracks my open-source pull requests and learning progress.
 
 - **PR_LINK:** https://github.com/ZeusLN/zeus/pull/3437
 - **STATUS:** Open
-- **PROBLEM:** npm install failed on Windows due to peer dependency conflicts.
-- **SOLUTION:** Documented legacy-peer-deps workaround in README.
+- **PROBLEM:** On Windows systems, npm install failed due to unresolved peer dependency conflicts in the React Native toolchain.
+    This prevented Windows developers from building and contributing to Zeus Wallet, a production Lightning Network application.
+- **SOLUTION:** Documented a stable npm install --legacy-peer-deps workaround in the README, restoring a working setup path without modifying the existing dependency graph.
 - **TECH:** TypeScript, React Native, npm
 - **SCOPE:** Compatibility
 
@@ -62,8 +67,9 @@ This repository tracks my open-source pull requests and learning progress.
 
 - **PR_LINK:** https://github.com/ZeusLN/zeus/pull/3441
 - **STATUS:** Open
-- **PROBLEM:** NODE_ENV handling differed across Windows shells, confusing developers.
-- **SOLUTION:** Added optional `start:prod` script using cross-env without modifying existing workflows.
+- **PROBLEM:** NODE_ENV was set differently across Windows shells (PowerShell, CMD, Git Bash), leading to inconsistent runtime behavior and confusing environment-specific bugs during local development and
+    testing.
+- **SOLUTION:** Added an optional start:prod script using cross-env to provide consistent environment variable handling across platforms, without altering or breaking existing scripts.
 - **TECH:** Node.js, npm, cross-env
 - **SCOPE:** Compatibility
 
@@ -73,8 +79,9 @@ This repository tracks my open-source pull requests and learning progress.
 
 - **PR_LINK:** https://github.com/ZeusLN/zeus/pull/3448
 - **STATUS:** Open
-- **PROBLEM:** Invalid NWC inputs were caught late, leading to generic error messages.
-- **SOLUTION:** Added early frontend validation using existing locale strings.
+- **PROBLEM:** Invalid Nostr Wallet Connect (NWC) inputs were only detected after initiating deeper flows, resulting in generic error messages that obscured the real cause of failure.
+    For wallet software, delayed and unclear validation reduces user trust and increases support overhead.
+- **SOLUTION:**Implemented early frontend validation using existing localized strings, allowing input issues to be detected and communicated before network or wallet operations begin.
 - **TECH:** TypeScript, React Native
 - **SCOPE:** Validation
 
@@ -86,8 +93,8 @@ This repository tracks my open-source pull requests and learning progress.
 
 - **PR_LINK:** https://github.com/getAlby/hub/pull/1992
 - **STATUS:** Open
-- **PROBLEM:** Icon-only buttons lacked accessible labels and disabled semantics.
-- **SOLUTION:** Added aria-labels, aria-disabled, and hid decorative icons.
+- **PROBLEM:** Icon-only buttons lacked accessible labels and proper disabled semantics, making their purpose unclear to screen-reader users and causing disabled states to be incorrectly announced.
+- **SOLUTION:**Added descriptive aria-labels, applied correct aria-disabled semantics, and marked decorative icons as hidden from the accessibility tree to ensure accurate announcements by assistive technologies.
 - **TECH:** TypeScript, React, ARIA
 - **SCOPE:** Accessibility
 
@@ -97,8 +104,9 @@ This repository tracks my open-source pull requests and learning progress.
 
 - **PR_LINK:** https://github.com/saiy2k/nostr-components/pull/52
 - **STATUS:** Open
-- **PROBLEM:** Follow button allowed interaction while loading or unavailable.
-- **SOLUTION:** Added disabled attribute, blocked focus, and improved ARIA semantics.
+- **PROBLEM:** The follow button remained interactive during loading and unavailable states, allowing users to trigger actions that could not be completed.
+   This caused inconsistent behavior for keyboard users and unclear state announcements for screen readers.
+- **SOLUTION:** Implemented proper disabled-state handling by applying the disabled attribute, blocking focus when unavailable, and improving ARIA semantics to accurately reflect interaction state.
 - **TECH:** TypeScript, Web Components
 - **SCOPE:** Accessibility
 
@@ -108,8 +116,9 @@ This repository tracks my open-source pull requests and learning progress.
 
 - **PR_LINK:** https://github.com/block-core/angor/pull/606
 - **STATUS:** Open
-- **PROBLEM:** Invalid investment amounts were not clearly communicated to users.
-- **SOLUTION:** Added UI-level validation feedback using existing validity state.
+- **PROBLEM:** Invalid investment amounts were not clearly communicated to users, resulting in silent failures or ambiguous feedback during a financial interaction.
+  In investment-related flows, unclear validation increases user error and reduces confidence in the platform.
+- **SOLUTION:**Added UI-level validation feedback by leveraging the existing validity state, surfacing precise and immediate error messages without modifying backend logic.
 - **TECH:** C#, Avalonia UI, XAML
 - **SCOPE:** Validation
 
@@ -119,8 +128,8 @@ This repository tracks my open-source pull requests and learning progress.
 
 - **PR_LINK:** https://github.com/getAlby/hub/pull/1992
 - **STATUS:** Closed
-- **PROBLEM:** Accessibility semantics were implemented at the wrong abstraction level.
-- **SOLUTION:** PR closed after maintainer feedback; learnings documented.
+- **PROBLEM:** Accessibility semantics were initially implemented at an inappropriate abstraction level, increasing complexity and making the solution harder to maintain across the component system.
+- **SOLUTION:** Closed the PR after maintainer feedback, documented the learnings, and adjusted the approach in subsequent accessibility-focused contributions to apply semantics at the correct layer.
 - **TECH:** TypeScript, React, shadcn/ui
 - **SCOPE:** Learning
 
@@ -130,8 +139,9 @@ This repository tracks my open-source pull requests and learning progress.
 
 - **PR_LINK:** https://github.com/getAlby/bitcoin-connect/pull/360
 - **STATUS:** Open
-- **PROBLEM:** Store subscriptions were never cleaned up, causing memory leaks.
-- **SOLUTION:** Implemented proper unsubscribe logic using lifecycle callbacks.
+- **PROBLEM:** Store subscriptions created within the bc-button component were never cleaned up on unmount, causing memory leaks during repeated mounts and state updates.
+    Over time, this could degrade performance in long-running applications using Bitcoin Connect.
+- **SOLUTION:** Implemented proper unsubscribe logic using component lifecycle callbacks, ensuring subscriptions are consistently cleaned up when the component is disposed.
 - **TECH:** TypeScript, Lit
 - **SCOPE:** Performance
 
@@ -141,8 +151,9 @@ This repository tracks my open-source pull requests and learning progress.
 
 - **PR_LINK:** https://github.com/getAlby/bitcoin-connect/pull/361
 - **STATUS:** Open
-- **PROBLEM:** Non-semantic divs prevented keyboard and screen-reader access.
-- **SOLUTION:** Refactored to semantic button with aria-live announcements.
+- **PROBLEM:** The bc-pay-button relied on non-semantic div elements for user interaction, preventing reliable keyboard navigation and limiting screen-reader support in a payment-related component.
+  Inaccessible payment interactions can block users entirely and reduce trust in financial tooling.
+- **SOLUTION:** Refactored the component to use a semantic button element, added appropriate ARIA attributes, and introduced aria-live announcements to communicate state changes to assistive technologies.
 - **TECH:** TypeScript, Lit, ARIA
 - **SCOPE:** Accessibility
 
